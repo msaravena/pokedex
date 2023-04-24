@@ -71,6 +71,8 @@ const PokemonCard = ({ url }) => {
     }
   };
 
+
+
   return (
 
     
@@ -86,7 +88,10 @@ const PokemonCard = ({ url }) => {
                 <div className="cd-text">Speed: {speed}</div>
                 
             </div>
-            <img src={detail.sprites?.front_default} alt="" className="big-pokemon-image"/>
+
+            <img src={detail.sprites?.other.dream_world.front_default} alt="" className="big-pokemon-image"/>
+                       
+            
        </div>
        </Link>
     </li>

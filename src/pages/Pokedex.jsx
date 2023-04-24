@@ -4,15 +4,12 @@ import PokemonCard from "../components/PokemonCard";
 import { useSelector } from "react-redux";
 import { changeName } from '../store/slices/username.slice'
 
-
-
-  const Pokedex = () => {
+const Pokedex = () => {
   const [type, setType] = useState([]);
   const [pokemons, setPokemons] = useState([]);
   
-
-  const name = useSelector(state => state.username)
   
+  const name = useSelector(state => state.username)
 
   useEffect(() => {
     axios
@@ -37,16 +34,17 @@ import { changeName } from '../store/slices/username.slice'
       })
       .catch((error) => console.error(error));
   };
+
+  
   
 
   const [page, setPage] = useState(1);
   const pokemonsPerPage = 20;
-  const lastIndex = page * pokemonsPerPage; 
-  const firstIndex = lastIndex - pokemonsPerPage; 
+  const lastIndex = page * pokemonsPerPage;
+  const firstIndex = lastIndex - pokemonsPerPage;
 
   const pokemonsPaginated = pokemons?.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
- 
 
   const pagesNumbers = [];
 
@@ -54,38 +52,36 @@ import { changeName } from '../store/slices/username.slice'
     pagesNumbers.push(i);
   }
 
-  
-
   return (
     <div className="pokedex-page">
-        <h2 className="pokedex-title">Pokedex</h2>
-        <p className="pokedex-welcome">Welcome {name}, here you can find your favorite pokemon</p>
-    
-      <select name="" id="" onChange={selectedType} className='pokedex-select'>
+      <h2 className="pokedex-title">Pokedex</h2>
+      <p className="pokedex-welcome">
+        Welcome {name}, here you can find your favorite pokemon
+      </p>                  
+      
+      <select
+        name=""
+        id=""
+        onChange={selectedType}
+        className="pokedex-select"
+      >
         {type?.map((type) => (
           <option value={type.url} key={type.name}>
-            {type.name}           
+            {type.name}
           </option>
         ))}
-      </select>
-    
+      </select>       
 
-        <ul>
+      <ul>
         <div className="pokemon-cards">
-        
-            {pokemonsPaginated.map((item, index) => (          
-               
-                <PokemonCard                
-                url={item.pokemon ? item.pokemon.url : item.url}
-                key={index}
-                
-                />
-                               
-                ))}
-                
+          {pokemonsPaginated.map((item, index) => (
+            <PokemonCard
+              url={item.pokemon ? item.pokemon.url : item.url}
+              key={index}
+            />
+          ))}
         </div>
-        </ul>
-    
+      </ul>     
 
       <div className="pagination-buttons">
         <button disabled={page === 1} onClick={() => setPage(page - 1)} className='prev-btn'>

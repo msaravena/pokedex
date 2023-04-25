@@ -35,6 +35,8 @@
     background-color: #3e8e41;
 }
 
+/* ============ Pokedex Page ====================================== */
+
 
 .pokedex-page{
     display: flex;
@@ -57,6 +59,16 @@
 }
 
 
+.pokedex-select {
+    padding: 8px 25px;
+    width: 180px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+
+/* ==================== Pokemon Card Page ========================== */
 .pokemon-card {
     border: 1px solid #ccc;
     padding: 20px;   
@@ -88,25 +100,25 @@
    
 }
 
-
 .pokemon-cards {
     display: flex;
     flex-wrap: wrap;
     margin: 40px auto;
 }  
-
 .card-detail {    
     display: flex;
     flex-direction: column;    
 }   
 
+/* ===================== Pokemon Detail Page ======================= */
+
 .pokemon-detail-page{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;    
+    align-items: center;    
+    position: relative;  
+    height: 100vh;  
 }
 
 .pg_image_1 {
@@ -205,6 +217,11 @@
     margin-bottom: 10px;
 }
 
+.movements_paragraphs{
+    display: none;
+
+}
+
 .types_abilities {
     width: 600px;
     display: flex;
@@ -282,6 +299,8 @@
     width: fit-content;
 }
 
+/* =========================== Pagination ====================== */
+
 .pagination-buttons{
     margin-top: 20px;
 }
@@ -309,35 +328,9 @@
 .pagination-buttons .numbers-btn:hover{
     color:white;
 }
+  /* ============================== Pokemon Cards Styling ============================ */
 
-.pokedex-select {
-    padding: 8px 25px;
-    width: 180px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-}
 
-.search-container input {
-    padding: 8px 25px;
-    border-radius: 20px 0 0  20px;
-    width: 14rem;
-    border: none;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-}
-.search-container button {
-    padding: 8px 25px;
-    border-radius: 0 20px 20px 0;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-    border: none;
-    width: 6rem;
-    background-color: #d4dad4;
-}
-
-.search-container input:focus {
-    outline: none;
-}
-  
 .normal {
     background-color: #A8A878;
 }
@@ -416,3 +409,114 @@
 .shadow {
     background-color: #A8A878;
 }
+/* ====================== MEDIA QUERIES (MEDIUM DEVICES) ====================== */
+
+@media screen and (max-width: 1024px) {
+    .pokemon-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+               
+    }
+
+    .pokemon-card {
+        width: 85%;
+    }
+    
+    .pokemon_content_container {
+        flex-direction: column;
+    }
+    .movements_container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 600px;
+        padding-top: 1rem;
+    }
+    .movements {
+        display: none;  
+    }
+
+    .movements_paragraphs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px;        
+        gap: 5px;
+    }
+
+    .movements_container h2 { 
+        font-size: 20px;
+        margin-bottom: 0;
+     }
+
+    .movement {             
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        width: 80px;
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+ /* ====================== MEDIA QUERIES (SMALL DEVICES) ====================== */
+ 
+ @media screen and (max-width: 600px) {  
+    .pokemon-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;               
+    }   
+    
+    .pokedex-page {
+        display: grid;
+        place-items: center;
+    }
+
+    .pokedex-page {
+        text-align: center;
+    }
+    
+    .pokemon-detail-page  {         
+    height: 100%;    
+    }
+
+    .pokemon_content_container {        
+        display: flex;
+        flex-direction: column;
+        padding: 15rem 2rem;
+        margin: 0 auto;  
+        
+        
+    }
+
+    .pokemon-detail-page .pokemon-card_detail {
+        width: 300px;
+        height: 350px;
+    }
+
+    .types_abilities {
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .movements_container {
+        width: 300px;
+        
+    }
+
+    .abilities_container {
+        padding: 20px;
+        margin-left: 0;
+    }
+
+    .pg_image_1 {
+        z-index: 1;
+    }
+    .stats {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+ }

@@ -85,62 +85,67 @@ return  (
         <img src={pokebola} alt="" />
        </div>
        <div className="pokemon_content_container">
-        <div className="pokemon_content">
-            <div className={`pokemon-card_detail ${types?.map(type => ` ${getTypeColor(type)}`)}`}>
+            <div className="pokemon_content">
+                <div className="pokemon-card_detail">
 
-                <div className="image-container">                
-                    <img src={pokemon.sprites?.other.dream_world.front_default} alt={pokemon.name} />
+                    <div className="image-container">                
+                        <img src={pokemon.sprites?.other.dream_world.front_default} alt={pokemon.name} />
+                    </div>
+                    <div className="text-container">
+                    <h2 className="poke_name">{pokemon.name}</h2>
+                    <div className="stats">
+                        <p>Weight: {pokemon.weight}</p>
+                        <p>Height: {pokemon.height}</p>
+                    </div>       
+                                        
                 </div>
-                <div className="text-container">
-                <h2 className="poke_name">{pokemon.name}</h2>
-                <div className="stats">
-                    <p>Weight: {pokemon.weight}</p>
-                    <p>Height: {pokemon.height}</p>
-                </div>       
-                                       
-            </div>
 
-            </div>
-            <div className="types_abilities">
-                
-                <div className="types_container">
-                    <h3>Type</h3>
-                    <ul className="types" >
-                    {pokemon.types?.map((type) => (
-                        <li className="type">
-                            {type.type.name}
-                        </li>
-                        
-                        
-                        ))}
-                    </ul>
+                </div>
+                <div className="types_abilities">
                     
+                    <div className="types_container">
+                        <h3>Type</h3>
+                        <ul className="types" >
+                        {pokemon.types?.map((type) => (
+                            <li className="type">
+                                {type.type.name}
+                            </li>
+                            
+                            
+                            ))}
+                        </ul>
+                        
+                    </div>
+                    <div className="abilities_container">
+                        <h3>Abilities </h3>
+                        <ul className="abilities">
+                            {pokemon.abilities?.map((ability) => (
+                                <li className="ability">
+                                    {ability.ability.name}
+                                </li>   
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                <div className="abilities_container">
-                    <h3>Abilities </h3>
-                    <ul className="abilities">
-                        {pokemon.abilities?.map((ability) => (
-                            <li className="ability">
-                                {ability.ability.name}
-                            </li>   
+            </div>      
+
+            <div className="movements_container">
+                    <h2>Movements</h2>
+                    <ul className="movements">
+                        {pokemon.moves?.slice(0, 15).map((move) => (
+                        <li className="movement">
+                            {move.move.name}
+                        </li>
                         ))}
-                    </ul>
-                </div>
+                    </ul> 
+                    <ul className="movements_paragraphs">
+                        {pokemon.moves?.slice(0, 10).map((move) => (
+                        <p className="movement">
+                            {move.move.name}
+                        </p>
+                        ))}
+                    </ul> 
             </div>
-        </div>
-       
-
-        <div className="movements_container">
-                <h2>Movements</h2>
-                <ul className="movements">
-                    {pokemon.moves?.slice(0, 15).map((move) => (
-                    <li className="movement">
-                        {move.move.name}
-                    </li>
-                    ))}
-                </ul> 
-        </div>
-
        </div>
         
         
